@@ -1,0 +1,30 @@
+#event-console {
+    grid-row-start: 1;
+    grid-row-end: 10;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    overflow-y: auto;
+}
+
+#cabin-pressure { grid-row: 1 / 2; grid-column: 4 / 6; }
+
+#cabin-temperature { grid-row: 2 / 3; grid-column: 4 / 6; }
+
+#piss-o-meter { grid-row: 3 / 7; grid-column: 4 / 6; }
+
+#robotic-arms { grid-row: 7 / 10; grid-column: 4 / 6; }
+
+#CMG-monitor { grid-row: 1 / 6; grid-column: 6 / 11; }
+
+#altitude-graph { grid-row: 6 / 8; grid-column: 6 / 11; }
+
+#PVCU-monitor { grid-row: 8 / 10; grid-column: 6 / 11; }
+
+#various { grid-row: 1 / 5; grid-column: 11 / 14; }
+
+#LOAC { grid-row: 1 / 2; grid-column: 14 / 17; }
+
+#airlock-pressures { grid-row: 2 / 5; grid-column: 14 / 17; }
+
+#view-3D { grid-row: 5 / 10; grid-column: 11 / 17; }
