@@ -13,25 +13,31 @@
         
         <div id="widget-container">
             <fieldset id="event-console" class="iss-widget"></fieldset>
-            <fieldset id="cabin-pressure" class="iss-widget">
-                <span class="label"></span>
-                <span class="unit"></span>
+            <fieldset id="cabin-pressure" class="iss-widget hcentered">
+                <div class="image-container">
+                    <img class="invert dial" src="img/dial-hand.png" height="75%">
+                    <img class="invert dial" src="img/dial-marks.png" height="75%">
+                </div>
+                <div>
+                    <span class="label-text label-text-small">1013.1</span>
+                    <span class="unit">hPa</span>
+                </div>
             </fieldset>
             <fieldset id="cabin-temperature" class="iss-widget label">
-                <span class="label-text">23.4</span>
-                <span class="unit">°C</span>
+                <div>
+                    <span class="label-text label-text-medium"></span>
+                    <span class="unit">°C</span>
+                </div>
             </fieldset>
             <fieldset id="piss-o-meter" class="iss-widget"></fieldset>
             <fieldset id="robotic-arms" class="iss-widget"></fieldset>
             <fieldset id="CMG-monitor" class="iss-widget"></fieldset>
             <fieldset id="altitude-graph" class="iss-widget"></fieldset>
             <fieldset id="PVCU-monitor" class="iss-widget"></fieldset>
-            <fieldset id="robotic-arms" class="iss-widget"></fieldset>
             <fieldset id="various" class="iss-widget"></fieldset>
             <fieldset id="LOAC" class="iss-widget"></fieldset>
             <fieldset id="airlock-pressures" class="iss-widget"></fieldset>
             <fieldset id="view-3D" class="iss-widget"></fieldset>
-
         </div>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
@@ -40,6 +46,7 @@
         
         <script src="js/subscriptions.js"></script>
         <script src="js/int-codes.js"></script>
+        <script src="js/widget-updates.js"></script>
         <script src="js/widgets.js"></script>
         <script src="js/telemetry.js"></script>
     </body>

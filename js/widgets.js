@@ -1,13 +1,15 @@
 const widgetContainer = document.querySelector("#widget-container");
 
 const eventConsole = document.querySelector("#event-console");
+const cabinTemperature = document.querySelector("#cabin-temperature");
+const cabinPressure = document.querySelector("#cabin-pressure");
 
 for (const widget of widgetContainer.children) {
     setTitle(widget);
 }
 
 function updateTelemetry(update) {
-    
+    widgetUpdaters[update.getItemName()](update.getValue("Value"));
     /*const updateMessage = document.createElement("p");
     updateMessage.innerHTML = update.getItemName() + " " + update.getValue("Value");
     eventConsole.appendChild(updateMessage);
@@ -27,4 +29,8 @@ function setTitle(widget) {
     widgetTitle.classList.add("widget-title");
     widgetTitle.innerHTML = idToTitle(widget.id);
     widget.appendChild(widgetTitle);
+}
+
+function torrToHPa(x) {
+    return (x * 1013.25) / 760;
 }
