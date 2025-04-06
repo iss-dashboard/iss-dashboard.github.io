@@ -11,3 +11,15 @@ require(["LightstreamerClient","Subscription"],function(LightstreamerClient,Subs
     sub.addListener({onItemUpdate: updateTelemetry});
 });
 
+function trackISS() {
+    fetch("http://api.open-notify.org/iss-now.json").then(function(response) {
+        return response.json();
+      }).then(function(data) {
+        update3DView(data);
+      });
+
+    setTimeout(trackISS, 1000);
+}
+
+trackISS();
+

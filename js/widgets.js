@@ -3,6 +3,7 @@ const widgetContainer = document.querySelector("#widget-container");
 const eventConsole = document.querySelector("#event-console");
 const cabinTemperature = document.querySelector("#cabin-temperature");
 const cabinPressure = document.querySelector("#cabin-pressure");
+const view3D = document.querySelector("#view-3D");
 
 for (const widget of widgetContainer.children) {
     setTitle(widget);
@@ -21,6 +22,9 @@ function idToTitle(widgetid) {
     const firstWord = words[0];
 
     words[0] = firstWord[0].toUpperCase() + firstWord.slice(1);
+    for (const i in words) {
+        words[i] = words[i].replaceAll("_", "-");
+    }
     return words.join(" ");
 }
 
