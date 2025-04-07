@@ -50,16 +50,52 @@ legend {
     place-items: center;
 }
 
-.hcentered {
+.label-group {
+    padding: 1vw;
+}
+
+.hcentered-text {
     text-align: center;
 }
 
+.vcentered {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hcentered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.centered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.raligned {
+    text-align: right;
+}
+
 .label-text-medium {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .label-text-small {
     font-size: .9rem;
+}
+
+.label-text-smaller {
+    font-size: .75rem;
+}
+
+.label-text-tiny {
+    font-size: .5rem;
 }
 
 .invert {
@@ -71,8 +107,57 @@ legend {
     height: 85%;
 }
 
+.image-container-full {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 1;
+    height: 69%;
+}
+
 .dial {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
+}
+
+.earth {
+    left: 0;
+    position: absolute;
+}
+
+.top-left {
+    position: absolute;
+    left: 0;
+}
+
+.bottom-left {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.top-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.bottom-right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.label-ok {
+    color: rgb(0, 255, 0);
+}
+
+.label-notok {
+    color: red;
+}
+
+.label-below {
+    margin-top: 1vh;
 }

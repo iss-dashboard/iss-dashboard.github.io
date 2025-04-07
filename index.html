@@ -13,7 +13,7 @@
         
         <div id="widget-container">
             <fieldset id="event-console" class="iss-widget"></fieldset>
-            <fieldset id="cabin-pressure" class="iss-widget hcentered">
+            <fieldset id="cabin-pressure" class="iss-widget hcentered-text">
                 <div class="image-container">
                     <img class="invert dial" src="img/dial-hand.png" height="75%">
                     <img class="invert dial" src="img/dial-marks.png" height="75%">
@@ -24,27 +24,92 @@
                 </div>
             </fieldset>
             <fieldset id="cabin-temperature" class="iss-widget label">
-                <div>
+                <div class="centered hcentered-text">
                     <span class="label-text label-text-medium"></span>
                     <span class="unit">°C</span>
                 </div>
             </fieldset>
-            <fieldset id="piss_o_meter" class="iss-widget"></fieldset>
+            <fieldset id="piss_o_meter" class="iss-widget">
+                <div id="urine-data-container" class="centered hcentered-text">
+                    <div class="top-left" id="urine-tank-container">
+                        <div id="urine-indicator"></div>
+                    </div>
+                    <div class="raligned label-group top-right label-below label-text-small">
+                        <p>
+                            <span class="label-text-tiny">Tank [%]:</span><br>
+                            <span id="urine-tank-percentage"></span>
+                        </p>
+                        <p>
+                            <span class="label-text-tiny">Processor state:</span><br>
+                            <span id="urine-processor-state"></span>
+                        </p>
+                    </div>
+                </div>
+                
+            </fieldset>
             <fieldset id="robotic-arms" class="iss-widget"></fieldset>
-            <fieldset id="CMG-monitor" class="iss-widget"></fieldset>
-            <fieldset id="altitude-graph" class="iss-widget"></fieldset>
+            <fieldset id="CMG-monitor" class="iss-widget">
+                <div id="monitor-CMG1" class="single-CMG-monitor hcentered-text top-left">
+                    <div>CMG 1</div>
+                    <img class="invert cmg-rotor" id="rotor1" src="img/fan.png" height="40%">
+                    <div id="rotor1-enabled"></div>
+                </div>
+                <div id="monitor-CMG2" class="single-CMG-monitor hcentered-text top-right">
+                    <div>CMG 2</div>
+                    <img class="invert cmg-rotor" id="rotor2" src="img/fan.png" height="40%">
+                    <div id="rotor2-enabled"></div>
+                </div>
+                <div id="monitor-CMG3" class="single-CMG-monitor hcentered-text bottom-left">
+                    <div>CMG 3</div>
+                    <img class="invert cmg-rotor" id="rotor3" src="img/fan.png" height="40%">
+                    <div id="rotor3-enabled"></div>
+                </div>
+                <div id="monitor-CMG4" class="single-CMG-monitor hcentered-text bottom-right">
+                    <div>CMG 4</div>
+                    <img class="invert cmg-rotor" id="rotor4" src="img/fan.png" height="40%">
+                    <div id="rotor4-enabled"></div>
+                </div>
+            </fieldset>
+            <fieldset id="altitude-graph" class="iss-widget">
+                <div id="altitude-label" class="top-right label-text-tiny"></div>
+                <canvas class="centered" id="altitude-canvas"></canvas>
+            </fieldset>
             <fieldset id="PVCU-monitor" class="iss-widget"></fieldset>
             <fieldset id="various" class="iss-widget"></fieldset>
-            <fieldset id="LOAC" class="iss-widget"></fieldset>
+            <fieldset id="LOAC" class="iss-widget hcentered-text">
+                <div class="centered">
+                    <span class="label-text-smaller">CMG Att Control: </span>
+                    <span id="label-cmg-control"></span>
+                    <span class="label-text-smaller">ISS Att Control: </span>
+                    <span id="label-iss-control"></span>
+                </div>
+            </fieldset>
             <fieldset id="airlock-pressures" class="iss-widget"></fieldset>
-            <fieldset id="view-3D" class="iss-widget hcentered">
-                <img id="earth-animation" src="img/earth-animation/0360.png" height="100%">
+            <fieldset id="view-3D" class="iss-widget">
+                <div class="image-container-full">
+                    <img class="earth" id="earth-animation" src="img/earth-animation/0000.png" height="100%">
+                    <img class="earth" id="iss-3d-pointer" src="img/iss-3d-pointer.png" height="100%">
+                    <div id="iss-label">ISS</div>
+                </div>
+                <div class="label-group bottom-left">
+                    <span id="label-latitude"></span><span id="latitude-ns-label" class="unit"></span><br>
+                    <span id="label-longitude"></span><span id="longitude-ew-label" class="unit"></span>
+                </div>
+                <div class="label-group top-right label-text-tiny">
+                    <span>Altitude not to scale</span>
+                </div>
+                <div class="label-group bottom-right raligned">
+                    <span class="label-text-tiny">Solar β angle:</span><br>
+                    <span id="label-beta"></span>
+                </div>
             </fieldset>
         </div>
         
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
         <script src="https://demos.lightstreamer.com/commons/lightstreamer.min.js"></script>
         <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        
         
         <script src="js/subscriptions.js"></script>
         <script src="js/int-codes.js"></script>

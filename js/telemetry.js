@@ -1,3 +1,8 @@
+let altitudeUpdateInterval = 10000;
+let altitudeUpdateUnit = 1000;
+
+const SEC_TO_MIN_THRESHOLD = 180;
+
 require(["LightstreamerClient","Subscription"],function(LightstreamerClient,Subscription) 
 {
 	const client = new LightstreamerClient("https://push.lightstreamer.com","ISSLIVE");
@@ -14,12 +19,18 @@ require(["LightstreamerClient","Subscription"],function(LightstreamerClient,Subs
 function trackISS() {
     fetch("http://api.open-notify.org/iss-now.json").then(function(response) {
         return response.json();
-      }).then(function(data) {
+    }).then(function(data) {
         update3DView(data);
-      });
+    }).catch(() => {});
 
-    setTimeout(trackISS, 1000);
+    setTimeout(trackISS, 1000);  // Every second
+}
+
+function trackAltitude() {
+    updateAltitudeGraph();
+    setTimeout(trackAltitude, altitudeUpdateInterval);  // Every 10 seconds
 }
 
 trackISS();
+trackAltitude();
 
