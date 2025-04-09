@@ -6,11 +6,16 @@ const cabinPressure = document.querySelector("#cabin-pressure");
 const loac = document.querySelector("#LOAC");
 const pissOMeter = document.querySelector("#piss_o_meter");
 const altitudeGraph = document.querySelector("#altitude-graph");
-
+const robotics = document.querySelector("#robotics");
 const view3D = document.querySelector("#view-3D");
+const various = document.querySelector("#various")
+
+const SEA_LEVEL_AIR_PRESSURE = 1013.25;
 
 for (const widget of widgetContainer.children) {
-    setTitle(widget);
+    if (widget.tagName === "FIELDSET") {
+        setTitle(widget);
+    }
 }
 
 let xState = 0.0;
@@ -26,6 +31,15 @@ let t = 0;
 let lastAltitudeUpdate = Date.now();
 let altitudesInterval = [];
 let altitudesDelays = [];
+
+let lastSSRMSMovementUpdate = -1;
+let lastSPDM1MovementUpdate = -1;
+let lastSPDM2MovementUpdate = -1;
+
+let q0;
+let q1;
+let q2;
+let q3;
 
 const ctx = document.getElementById('altitude-canvas');
 
@@ -63,11 +77,10 @@ const altitudeChart = new Chart(ctx, {
 
 
 function updateTelemetry(update) {
+    if (update.getItemName() === "USLAB000YAW") {
+        console.log("YAW BITCH");
+    }
     widgetUpdaters[update.getItemName()](update.getValue("Value"));
-    /*const updateMessage = document.createElement("p");
-    updateMessage.innerHTML = update.getItemName() + " " + update.getValue("Value");
-    eventConsole.appendChild(updateMessage);
-    eventConsole.scrollTop = eventConsole.scrollHeight;*/
 }
 
 function idToTitle(widgetid) {
@@ -141,4 +154,38 @@ function graphSecondsToMinutes() {
     altitudeChart.data.datasets[0].data.reverse();
 
     altitudeChart.update();
+}
+
+function toYawPitchRoll(q0, q1, q2, q3) {
+    var c12 = 2 * (q1 * q2 + q0 * q3);
+    var c11 = q0 * q0 + q1 * q1 - q2 * q2 - q3 * q3;
+    var c13 = 2 * (q1 * q3 - q0 * q2);
+    var c23 = 2 * (q2 * q3 + q0 * q1);
+    var c33 = q0 * q0 - q1 * q1 - q2 * q2 + q3 * q3;
+    var c22 = q0 * q0 - q1 * q1 + q2 * q2 - q3 * q3;
+    var c21 = 2 * (q1 * q2 - q0 * q3);
+    var mag_c13 = Math.abs(c13); //all c's should be in radians
+
+    yaw = 0.0;
+    pitch = 0.0;
+    roll = 0.0;
+
+    if (mag_c13 < 1)
+    {
+        yaw = Math.atan2(c12, c11);
+        pitch = Math.atan2(-c13, Math.sqrt(1.0 - (c13 * c13)));
+        roll = Math.atan2(c23, c33);
+    }
+    else if (mag_c13 == 1)
+    {
+        yaw = Math.atan2(-c21, c22);
+        pitch = Math.asin(-c13);
+        roll = 0.0;
+    }
+    
+    return {
+        yaw: yaw * 180 / Math.PI,
+        pitch: pitch * 180 / Math.PI,
+        roll: roll * 180 / Math.PI
+    };
 }

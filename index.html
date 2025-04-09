@@ -12,14 +12,36 @@
     <body>
         
         <div id="widget-container">
-            <fieldset id="event-console" class="iss-widget"></fieldset>
+            <div id="dashboard-header">
+                <img id="iss-logo" src="img/ISS-logo.svg" height="90%">
+                <div id="iss-logo-text" class="raligned">
+                    <span class="title-big">ISS DASHBOARD</span><br>
+                    <span class="title-sub">Visit&nbsp;space without&nbsp;a&nbsp;suit</span>
+                </div>
+            </div>
+            <fieldset id="event-console" class="iss-widget">
+                
+            </fieldset>
+            <fieldset id="live-video-feed" class="iss-widget">
+                <iframe 
+                    width="100%";
+                    height="100%"
+                    src="https://www.youtube-nocookie.com/embed/H999s0P1Er0?si=p0k025GBKLZ-Uus-&controls=0&autoplay=1&mute=1" 
+                    title="YouTube video player"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </fieldset>
             <fieldset id="cabin-pressure" class="iss-widget hcentered-text">
+                <div class="label-text-tiny top-left label-group">Low</div>
+                <div class="label-text-tiny top-right label-group">High</div>
                 <div class="image-container">
-                    <img class="invert dial" src="img/dial-hand.png" height="75%">
+                    <img id="dial-hand" class="invert dial" src="img/dial-hand.png" height="75%">
                     <img class="invert dial" src="img/dial-marks.png" height="75%">
                 </div>
                 <div>
-                    <span class="label-text label-text-small">1013.1</span>
+                    <span class="label-text label-text-small"></span>
                     <span class="unit">hPa</span>
                 </div>
             </fieldset>
@@ -47,27 +69,111 @@
                 </div>
                 
             </fieldset>
-            <fieldset id="robotic-arms" class="iss-widget"></fieldset>
-            <fieldset id="CMG-monitor" class="iss-widget">
-                <div id="monitor-CMG1" class="single-CMG-monitor hcentered-text top-left">
-                    <div>CMG 1</div>
-                    <img class="invert cmg-rotor" id="rotor1" src="img/fan.png" height="40%">
-                    <div id="rotor1-enabled"></div>
+            <fieldset id="robotics" class="iss-widget">
+                <div id="robotics-status" class="centered label-text-very-small">
+                    <p>
+                        <span>SSRMS:&nbsp;&nbsp;&nbsp;</span><span id="SSRMS-status"></span><br>
+                        <span>Payload:&nbsp;</span><span id="SSRMS-payload"></span><br>
+                    </p>
+                    <p>
+                        <span>SPDM1:&nbsp;&nbsp;&nbsp;</span><span id="SPDM1-status"></span><br>
+                        <span>Payload:&nbsp;</span><span id="SPDM1-payload"></span><br>
+                    </p>
+                    <p>
+                        <span>SPDM2:&nbsp;&nbsp;&nbsp;</span><span id="SPDM2-status"></span><br>
+                        <span>Payload:&nbsp;</span><span id="SPDM2-payload"></span><br>
+                    </p>
                 </div>
-                <div id="monitor-CMG2" class="single-CMG-monitor hcentered-text top-right">
-                    <div>CMG 2</div>
-                    <img class="invert cmg-rotor" id="rotor2" src="img/fan.png" height="40%">
-                    <div id="rotor2-enabled"></div>
+                
+            </fieldset>
+            <fieldset id="CMG-monitor" class="iss-widget">
+                <div class="label-above hcentered-text">
+                    <span class="label-text-very-small">GNC mode:</span><br>
+                    <span id="gnc-mode" class="label-neutral label-text-smaller"></span>
+                </div>
+                <div id="monitor-CMG1" class="single-CMG-monitor top-CMG-monitor hcentered-text top-left">
+                    <div class="rotor-container">
+                        <div class="label-text-small">CMG 1</div>
+                        <img class="invert cmg-rotor" id="rotor1" src="img/fan.png" height="50%">
+                        <div id="rotor1-enabled"></div>
+                    </div>
+                    <div class="rotor-stats-container raligned label-text-very-small">
+                        <p class="no-top-margin">
+                            <span>Wheel speed:</span><br>
+                            <span id="cmg1-rpm"></span> <span>rpm</span>
+                        </p>
+                        <p>
+                            <span>Current:</span><br>
+                            <span id="cmg1-current"></span> <span>A</span>
+                        </p>
+                        <p>
+                            <span>Vibration:</span><br>
+                            <span id="cmg1-vibration"></span> <span>g</span>
+                        </p>
+                    </div>
+                </div>
+                <div id="monitor-CMG2" class="single-CMG-monitor top-CMG-monitor hcentered-text top-right">
+                    <div class="rotor-container">
+                        <div class="label-text-small">CMG 2</div>
+                        <img class="invert cmg-rotor" id="rotor2" src="img/fan.png" height="50%">
+                        <div id="rotor2-enabled"></div>
+                    </div>
+                    <div class="rotor-stats-container raligned label-text-very-small">
+                        <p class="no-top-margin">
+                            <span>Wheel speed:</span><br>
+                            <span id="cmg2-rpm"></span> <span>rpm</span>
+                        </p>
+                        <p>
+                            <span>Current:</span><br>
+                            <span id="cmg2-current"></span> <span>A</span>
+                        </p>
+                        <p>
+                            <span>Vibration:</span><br>
+                            <span id="cmg2-vibration"></span> <span>g</span>
+                        </p>
+                    </div>
                 </div>
                 <div id="monitor-CMG3" class="single-CMG-monitor hcentered-text bottom-left">
-                    <div>CMG 3</div>
-                    <img class="invert cmg-rotor" id="rotor3" src="img/fan.png" height="40%">
-                    <div id="rotor3-enabled"></div>
+                    <div class="rotor-container">
+                        <div class="label-text-small">CMG 3</div>
+                        <img class="invert cmg-rotor" id="rotor3" src="img/fan.png" height="50%">
+                        <div id="rotor3-enabled"></div>
+                    </div>
+                    <div class="rotor-stats-container raligned label-text-very-small">
+                        <p class="no-top-margin">
+                            <span>Wheel speed:</span><br>
+                            <span id="cmg3-rpm"></span> <span>rpm</span>
+                        </p>
+                        <p>
+                            <span>Current:</span><br>
+                            <span id="cmg3-current"></span> <span>A</span>
+                        </p>
+                        <p>
+                            <span>Vibration:</span><br>
+                            <span id="cmg3-vibration"></span> <span>g</span>
+                        </p>
+                    </div>
                 </div>
                 <div id="monitor-CMG4" class="single-CMG-monitor hcentered-text bottom-right">
-                    <div>CMG 4</div>
-                    <img class="invert cmg-rotor" id="rotor4" src="img/fan.png" height="40%">
-                    <div id="rotor4-enabled"></div>
+                    <div class="rotor-container">
+                        <div class="label-text-small">CMG 4</div>
+                        <img class="invert cmg-rotor" id="rotor4" src="img/fan.png" height="50%">
+                        <div id="rotor4-enabled"></div>
+                    </div>
+                    <div class="rotor-stats-container raligned label-text-very-small">
+                        <p class="no-top-margin">
+                            <span>Wheel speed:</span><br>
+                            <span id="cmg4-rpm"></span> <span>rpm</span>
+                        </p>
+                        <p>
+                            <span>Current:</span><br>
+                            <span id="cmg4-current"></span> <span>A</span>
+                        </p>
+                        <p>
+                            <span>Vibration:</span><br>
+                            <span id="cmg4-vibration"></span> <span>g</span>
+                        </p>
+                    </div>
                 </div>
             </fieldset>
             <fieldset id="altitude-graph" class="iss-widget">
@@ -75,7 +181,60 @@
                 <canvas class="centered" id="altitude-canvas"></canvas>
             </fieldset>
             <fieldset id="PVCU-monitor" class="iss-widget"></fieldset>
-            <fieldset id="various" class="iss-widget"></fieldset>
+            <fieldset id="various" class="iss-widget full-width">
+                <div class="full-height two-sided scrollable" style="width: 100%; padding-left: 1.5vw;">
+                    <div class="various-left label-text-very-small">
+                        <p class="vclose"><span>Ku-band Transmit:</span></p>
+                        <p class="vclose"><span>Attitude Maneuver:</span></p> 
+                        <p class="vclose"><span>US Attitude Yaw:</span></p>
+                        <p class="vclose"><span>US Attitude Pitch:</span></p> 
+                        <p class="vclose"><span>US Attitude Roll:</span> </p>
+                        <p class="vclose"><span>Hi P Valve:</span></p>
+                        <p class="vclose"><span>Lo P Valve:</span></p>
+                        <p class="vclose"><span>N2 Valve:</span></p>
+                        <p class="vclose"><span>H2O Proc. State:</span></p>
+                        <p class="vclose"><span>H2O Proc. Step:</span></p>
+                        <p class="vclose"><span>Waste Water Tank:</span></p>
+                        <p class="vclose"><span>Clean Water Tank:</span></p>
+                        <p class="vclose"><span>Connected laptops:</span></p>
+                        <p class="vclose"><span>O2 Generator:</span></p>
+                        <p class="vclose"><span>O2 Production:</span></p>
+                        <p class="vclose"><span>S Therm. Radiator:</span></p>
+                        <p class="vclose"><span>P Therm. Radiator</span></p>
+                        <p class="vclose"><span>S SARJ Mode:</span></p>
+                        <p class="vclose"><span>S SARJ Angle:</span></p>
+                        <p class="vclose"><span>P SARJ Mode:</span></p>
+                        <p class="vclose"><span>P SARJ Angle:</span></p>
+                        <p class="vclose"><span>Total Mass:</span></p>
+                        <p class="vclose"><span>Station Mode:</span></p>
+                    </div>
+                    <div class="various-right label-text-very-small">
+                        <p class="vclose"><span id="var-ku-band" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-maneuver" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-yaw" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-pitch" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-roll" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-o2-hi" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-o2-lo" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-n2" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-h2o-proc-state" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-h2o-proc-step" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-waste-water" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-clean-water" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-laptops" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-o2-gen" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-o2-production" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-s-radiator" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-p-radiator" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-ssarj-mode" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-ssarj-angle" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-psarj-mode" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-psarj-angle" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-iss-mass" class="label-value"><br></span></p>
+                        <p class="vclose"><span id="var-iss-mode" class="label-value"><br></span></p>
+                    </div>
+                </div>
+            </fieldset>
             <fieldset id="LOAC" class="iss-widget hcentered-text">
                 <div class="centered">
                     <span class="label-text-smaller">CMG Att Control: </span>

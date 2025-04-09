@@ -1,4 +1,6 @@
-#event-console { grid-row: 1 / 10; grid-column: 1 / 4; overflow-y: auto; }
+#event-console { grid-row: 2 / 7; grid-column: 1 / 4; overflow-y: auto; }
+
+#live-video-feed { grid-row: 7 / 10; grid-column: 1 / 6; }
 
 #cabin-pressure { grid-row: 1 / 3; grid-column: 4 / 6; }
 
@@ -6,13 +8,13 @@
 
 #piss_o_meter { grid-row: 4 / 7; grid-column: 4 / 6; }
 
-#robotic-arms { grid-row: 7 / 10; grid-column: 4 / 6; }
+#robotics { grid-row: 8 / 10; grid-column: 9 / 11; }
 
 #CMG-monitor { grid-row: 1 / 6; grid-column: 6 / 11; }
 
 #altitude-graph { grid-row: 6 / 8; grid-column: 6 / 11; }
 
-#PVCU-monitor { grid-row: 8 / 10; grid-column: 6 / 11; }
+#PVCU-monitor { grid-row: 8 / 10; grid-column: 6 / 9; }
 
 #various { grid-row: 1 / 5; grid-column: 11 / 15; }
 
@@ -48,8 +50,9 @@
 }
 
 .single-CMG-monitor {
-    width: 50%;
-    height: 50%;
+    width: calc(50% - 3vw);
+    height: calc(50% - 3vw);
+    padding: 1.5vw;
 }
 
 .cmg-rotor {
@@ -76,4 +79,26 @@
 
 #altitude-label {
     margin-right: 1vw
+}
+
+#robotics-status {
+    width: 75%;
+}
+
+.various-left {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.various-right {
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.label-value {
+    color: #00e1ff;
+}
+
+.top-CMG-monitor {
+    padding-top: 8vh;
 }
