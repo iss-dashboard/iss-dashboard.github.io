@@ -35,7 +35,8 @@
     height: 24vh;
     margin-left: 3vh;
     
-    background-color:rgb(17, 17, 17)
+    background-color:rgb(17, 17, 17);
+    border: solid 1px rgb(83, 83, 83);
 }
 
 #urine-indicator {
@@ -82,7 +83,7 @@
 }
 
 #robotics-status {
-    width: 75%;
+    width: fit-content;
 }
 
 .various-left {

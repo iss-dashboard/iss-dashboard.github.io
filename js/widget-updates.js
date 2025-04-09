@@ -286,8 +286,8 @@ function updateAltitudeGraph() {
     if (altitude === 0.0) {
         return;
     }
-    let weighedAltitude = 0;
-    let altitudesDelaysSum = altitudesDelays[0] || 0;
+    let weighedAltitude = 0.0;
+    let altitudesDelaysSum = altitudesDelays[0] || 0.0;
 
     if (altitudesDelays.length !== 0) { 
         // Before receiving any updates, the altitude is assumed to be equal to the first update
@@ -303,7 +303,7 @@ function updateAltitudeGraph() {
     weighedAltitude += altitude * (altitudeUpdateInterval - altitudesDelaysSum);
 
     altitudeChart.data.labels.splice(0, 0, t);
-    altitudeChart.data.datasets[0].data.push(weighedAltitude / altitudeUpdateInterval);
+    altitudeChart.data.datasets[0].data.push(Math.round(weighedAltitude / altitudeUpdateInterval));
     altitudeChart.update();
 
     altitudesInterval = [];
