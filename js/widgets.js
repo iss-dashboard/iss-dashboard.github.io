@@ -8,7 +8,7 @@ const pissOMeter = document.querySelector("#piss_o_meter");
 const altitudeGraph = document.querySelector("#altitude-graph");
 const robotics = document.querySelector("#robotics");
 const view3D = document.querySelector("#view-3D");
-const various = document.querySelector("#various")
+const various = document.querySelector("#various");
 
 const SEA_LEVEL_AIR_PRESSURE = 1013.25;
 

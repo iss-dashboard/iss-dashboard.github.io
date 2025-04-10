@@ -83,6 +83,7 @@
 }
 
 #robotics-status {
+    overflow-wrap: break-word;
     width: fit-content;
 }
 
@@ -102,4 +103,13 @@
 
 .top-CMG-monitor {
     padding-top: 8vh;
+}
+
+#PVCU-monitor {
+    display: flex;
+    justify-content: center;
+}
+
+#airlock-pressures {
+    overflow-x: hidden;
 }

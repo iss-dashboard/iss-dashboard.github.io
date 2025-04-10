@@ -91,6 +91,19 @@ const widgetUpdaters = {
     USLAB000019: updateLVLHQ1,
     USLAB000020: updateLVLHQ2,
     USLAB000021: updateLVLHQ3,
+
+    P4000003: updateSolarArray2A,
+    P4000006: updateSolarArray4A,
+    P6000003: updateSolarArray4B,
+    P6000006: updateSolarArray2B,
+
+    S4000003: updateSolarArray1A,
+    S4000006: updateSolarArray3A,
+    S6000003: updateSolarArray3B,
+    S6000006: updateSolarArray1B,
+
+    AIRLOCK000049: updateCrewlockPressure,
+    AIRLOCK000054: updateEquipmentLockPressure
 }
 
 function updateTemperature(value) {
@@ -351,7 +364,7 @@ function updateSSRMSMoving() {
 
 function stillMovingSSRMS() {
     const label = robotics.querySelector("#SSRMS-status"); 
-    if (lastSSRMSMovementUpdate > 4900) {
+    if (Date.now() - lastSSRMSMovementUpdate > 4900) {
         label.innerHTML = "Idle";
         label.classList.remove("label-ok");
         label.classList.add("label-neutral");
@@ -370,7 +383,7 @@ function updateSPDM1Moving() {
 
 function stillMovingSPDM1() {
     const label = robotics.querySelector("#SPDM1-status"); 
-    if (lastSPDM1MovementUpdate > 4900) {
+    if (Date.now() - lastSPDM1MovementUpdate > 4900) {
         label.innerHTML = "Idle";
         label.classList.remove("label-ok");
         label.classList.add("label-neutral");
@@ -389,7 +402,7 @@ function updateSPDM2Moving() {
 
 function stillMovingSPDM2() {
     const label = robotics.querySelector("#SPDM2-status"); 
-    if (lastSSRMSMovementUpdate > 4900) {
+    if (Date.now() - lastSSRMSMovementUpdate > 4900) {
         label.innerHTML = "Idle";
         label.classList.remove("label-ok");
         label.classList.add("label-neutral");
@@ -583,4 +596,55 @@ function updateYawPitchRoll() {
         updateVariousValue("pitch", orientation.pitch.toFixed(3) + "°");
         updateVariousValue("roll", orientation.roll.toFixed(3) + "°");
     }
+}
+
+function updateSolarArray(flag, solarArray) {
+    const elementSelector = "#solar-" + solarArray;
+    const element = (document.querySelector(elementSelector)
+        || document.querySelector("#iss-solar").getSVGDocument().querySelector(elementSelector));
+    element.setAttribute("fill", {0: "red", 1: "#0f0"}[flag]);
+}
+
+function updateSolarArray1A(flag) {
+    updateSolarArray(flag, "1a");
+}
+
+function updateSolarArray1B(flag) {
+    updateSolarArray(flag, "1b");
+}
+
+function updateSolarArray2A(flag) {
+    updateSolarArray(flag, "2a");
+}
+
+function updateSolarArray2B(flag) {
+    updateSolarArray(flag, "2b");
+}
+
+function updateSolarArray3A(flag) {
+    updateSolarArray(flag, "3a");
+}
+
+function updateSolarArray3B(flag) {
+    updateSolarArray(flag, "3b");
+}
+
+function updateSolarArray4A(flag) {
+    updateSolarArray(flag, "4a");
+}
+
+function updateSolarArray4B(flag) {
+    updateSolarArray(flag, "4b");
+}
+
+function updateCrewlockPressure(pressure) {
+    const element = (document.querySelector("#crewlock-pressure")
+        || document.querySelector("#iss-airlock").getSVGDocument().querySelector("#crewlock-pressure"));
+    element.innerHTML = torrToHPa(Number(pressure)).toFixed(1) + " hPa";
+}
+
+function updateEquipmentLockPressure(pressure) {
+    const element = (document.querySelector("#equipment-lock-pressure")
+        || document.querySelector("#iss-airlock").getSVGDocument().querySelector("#equipment-lock-pressure"));
+    element.innerHTML = torrToHPa(Number(pressure)).toFixed(1) + " hPa";
 }

@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1280 1920" xmlns="http://www.w3.org/2000/svg" style="vector-effect: non-scaling-stroke;" version="1.1">
+ <title>Airlock display</title>
+ <g id="Layer_1">
+  <rect stroke-width="10" rx="15" id="svg_2" height="672.48604" width="457.14285" y="1101.66665" x="466.37585" stroke="#fff" fill="none"/>
+  <path id="svg_4" d="m126.90465,679.87632l333.33865,-174.49507l471.41791,0l333.33865,174.49507l0,246.77641l-333.33865,174.49509l-471.41791,0l-333.33865,-174.49509l0,-246.77641z" stroke-width="10" stroke="#fff" fill="none"/>
+  <path id="svg_5" d="m2004.21923,1350.79846l0.43641,-0.43641l0.61718,0l0.43641,0.43641l0,0.61718l-0.43641,0.43641l-0.61718,0l-0.43641,-0.43641l0,-0.61718z" stroke-width="10" stroke="#fff" fill="#ffffff"/>
+  <rect stroke-width="10" rx="15" id="svg_7" height="78.67638" width="461.24239" y="424.17656" x="464.65688" stroke="#fff" fill="none"/>
+  <rect transform="rotate(90, 448.269, 1564.77)" stroke-width="10" rx="9" id="svg_8" height="32.79734" width="307.67115" y="1548.36699" x="294.43329" stroke="#fff" fill="none"/>
+  <path id="svg_9" d="m658.40577,328.31557l29.99992,-44.89188l29.99992,44.89188l-14.99996,0l0,45.10789l-29.99992,0l0,-45.10789l-14.99996,0z" stroke-width="10" stroke="#fff" fill="#fff"/>
+  <path id="svg_10" d="m2003.27104,727.09337l0.74251,-0.74001l0.74251,0.74001l-0.37125,0l0,0.74357l-0.74251,0l0,-0.74357l-0.37125,0z" stroke-width="10" stroke="#fff" fill="#ffffff"/>
+  <path transform="rotate(-90, 334.958, 1542.65)" id="svg_11" d="m304.9584,1542.5433l29.99992,-44.89188l29.99992,44.89188l-14.99996,0l0,45.10789l-29.99992,0l0,-45.10789l-14.99996,0z" stroke-width="10" stroke="#fff" fill="#fff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="monospace" font-size="80" id="svg_12" y="239.09875" x="565.00033" stroke-width="0" stroke="#fff" fill="#fff">Cabin</text>
+  <text xml:space="preserve" text-anchor="start" font-family="monospace" font-size="80" id="svg_13" y="1564.09863" x="5.00038" stroke-width="0" stroke="#fff" fill="#fff">Space</text>
+  <text xml:space="preserve" text-anchor="start" font-family="monospace" font-size="80" id="svg_14" y="758.90401" x="483.79906" stroke-width="0" stroke="#fff" fill="#fff">Equipment</text>
+  <text xml:space="preserve" text-anchor="start" font-family="monospace" font-size="80" id="svg_15" y="1344.09863" x="500.00033" stroke-width="0" stroke="#fff" fill="#fff">Crewlock</text>
+  <text stroke-width="0" xml:space="preserve" text-anchor="start" font-family="monospace" font-size="68" id="crewlock-pressure" y="1449.99962" x="496.25001" stroke="#fff" fill="#fff">- hPa</text>
+  <text style="cursor: move;" stroke-width="0" xml:space="preserve" text-anchor="start" font-family="monospace" font-size="68" id="equipment-lock-pressure" y="906.29202" x="494.59776" stroke="#fff" fill="#fff">- hPa</text>
+  <text xml:space="preserve" text-anchor="start" font-family="monospace" font-size="80" id="svg_21" y="832.20764" x="590.69557" stroke-width="0" stroke="#fff" fill="#fff">Lock</text>
+  <path id="svg_23" d="m129.85731,927.65732l1133.00831,0" opacity="undefined" stroke-width="5" stroke="#fff" fill="none"/>
+  <path id="svg_25" d="m127.1176,679.71395l1133.00831,0" opacity="undefined" stroke-width="5" stroke="#fff" fill="none"/>
+  <line id="svg_26" y2="677.47992" x2="457.48337" y1="925.93704" x1="457.48337" stroke-width="5" stroke="#fff" fill="none"/>
+  <line id="svg_27" y2="677.47992" x2="938.73331" y1="925.93704" x1="938.73331" stroke-width="5" stroke="#fff" fill="none"/>
+ </g>
+
+</svg>

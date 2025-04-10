@@ -12,13 +12,13 @@
     <body>
         
         <div id="widget-container">
-            <div id="dashboard-header">
+            <a href="https://github.com/iss-dashboard/Monitor" target="_blank" id="dashboard-header">
                 <img id="iss-logo" src="img/ISS-logo.svg" height="90%">
                 <div id="iss-logo-text" class="raligned">
                     <span class="title-big">ISS DASHBOARD</span><br>
                     <span class="title-sub">Visit&nbsp;space without&nbsp;a&nbsp;suit</span>
                 </div>
-            </div>
+            </a>
             <fieldset id="event-console" class="iss-widget">
                 
             </fieldset>
@@ -176,7 +176,9 @@
                 <div id="altitude-label" class="top-right label-text-very-small"></div>
                 <canvas class="centered" id="altitude-canvas"></canvas>
             </fieldset>
-            <fieldset id="PVCU-monitor" class="iss-widget"></fieldset>
+            <fieldset id="PVCU-monitor" class="iss-widget">
+                <embed id="iss-solar" src="img/iss-labeled.svg" height="100%" type="image/svg+xml">
+            </fieldset>
             <fieldset id="various" class="iss-widget full-width">
                 <div class="full-height two-sided scrollable" style="width: 100%; padding-left: 1.5vw;">
                     <div class="various-left label-text-very-small">
@@ -239,7 +241,9 @@
                     <span id="label-iss-control"></span>
                 </div>
             </fieldset>
-            <fieldset id="airlock-pressures" class="iss-widget"></fieldset>
+            <fieldset id="airlock-pressures" class="iss-widget">
+                <embed id="iss-airlock" src="img/airlock-display.svg" width="100%" type="image/svg+xml" style="max-height: 100%;">
+            </fieldset>
             <fieldset id="view-3D" class="iss-widget">
                 <div class="image-container-full">
                     <img class="earth" id="earth-animation" src="img/earth-animation/0000.png" height="100%">
