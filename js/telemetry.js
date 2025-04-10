@@ -17,9 +17,10 @@ require(["LightstreamerClient","Subscription"],function(LightstreamerClient,Subs
 });
 
 function trackISS() {
-    fetch("http://api.open-notify.org/iss-now.json").then(function(response) {
+    fetch("https://api.wheretheiss.at/v1/satellites/25544").then(function(response) {
         return response.json();
     }).then(function(data) {
+        console.log(data)
         update3DView(data);
     }).catch(() => {});
 

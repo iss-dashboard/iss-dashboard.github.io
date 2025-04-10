@@ -139,8 +139,8 @@ function updatePressure(value) {
 }
 
 function update3DView(data) {
-    const latitude = data.iss_position.latitude;
-    const longitude = data.iss_position.longitude;
+    const latitude = data.latitude;
+    const longitude = data.longitude;
 
     // Display longitude
 
@@ -640,11 +640,11 @@ function updateSolarArray4B(flag) {
 function updateCrewlockPressure(pressure) {
     const element = (document.querySelector("#crewlock-pressure")
         || document.querySelector("#iss-airlock").getSVGDocument().querySelector("#crewlock-pressure"));
-    element.innerHTML = torrToHPa(Number(pressure)).toFixed(1) + " hPa";
+    element.innerHTML = String(torrToHPa(Number(pressure)).toFixed(1)).padStart(6, "0") + " hPa";
 }
 
 function updateEquipmentLockPressure(pressure) {
     const element = (document.querySelector("#equipment-lock-pressure")
         || document.querySelector("#iss-airlock").getSVGDocument().querySelector("#equipment-lock-pressure"));
-    element.innerHTML = torrToHPa(Number(pressure)).toFixed(1) + " hPa";
+    element.innerHTML = String(torrToHPa(Number(pressure)).toFixed(1)).padStart(6, "0") + " hPa";
 }
