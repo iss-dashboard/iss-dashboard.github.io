@@ -20,7 +20,6 @@ function trackISS() {
     fetch("https://api.wheretheiss.at/v1/satellites/25544").then(function(response) {
         return response.json();
     }).then(function(data) {
-        console.log(data)
         update3DView(data);
     }).catch(() => {});
 

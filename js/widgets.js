@@ -77,9 +77,6 @@ const altitudeChart = new Chart(ctx, {
 
 
 function updateTelemetry(update) {
-    if (update.getItemName() === "USLAB000YAW") {
-        console.log("YAW BITCH");
-    }
     widgetUpdaters[update.getItemName()](update.getValue("Value"));
 }
 

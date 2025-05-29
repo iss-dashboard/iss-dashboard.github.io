@@ -456,7 +456,6 @@ function updateAttitudeManeuver(flag) {
 }
 
 function updateYaw(angle) {
-    console.log("yaw", angle);
     updateVariousValue("yaw", angle + "°");
     
 }
